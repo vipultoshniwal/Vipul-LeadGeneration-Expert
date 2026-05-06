@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vipul Toshniwal | Data Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Poppins',sans-serif;background:#0f172a;color:#fff}
+header{padding:20px 50px;display:flex;justify-content:space-between;align-items:center;background:#020617}
+h1{margin:0;font-size:22px}
+nav a{margin-left:20px;color:#fff;text-decoration:none}
+section{padding:60px 50px}
+.hero{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;height:80vh}
+.hero h2{font-size:40px;margin-bottom:10px}
+.hero p{max-width:600px;opacity:0.8}
+.btn{margin-top:20px;padding:12px 20px;background:#22c55e;color:#000;border:none;border-radius:8px;cursor:pointer}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:#1e293b;padding:20px;border-radius:12px}
+.filter{margin-bottom:20px}
+input{padding:10px;border-radius:6px;border:none;width:250px}
+footer{text-align:center;padding:20px;background:#020617}
+</style>
+</head>
+<body>
+<header>
+<h1>Vipul Toshniwal</h1>
+<nav>
+<a href="#about">About Me</a>
+<a href="#experience">Experience</a>
+<a href="#skills">Skills</a>
+<a href="#leads">Sample Leads</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h2>Lead Generation Specialist</h2>
+<p>I have 5+ years in B2B lead generation and business development. I consistently deliver 1,500–2,000 verified C-level leads per month at 98.9% accuracy, helping sales teams cut prospecting time by up to 40%</p>
+<button class="btn" onclick="document.getElementById('contact').scrollIntoView()">Hire Me</button>
+</section>
+
+<section id="about">
+<h2>About Me</h2>
+<p>I am a Business Process Executive specializing in high-accuracy data entry, lead generation, and CRM management. I focus on clean, verified, and structured data that helps sales teams close faster.</p>
+</section>
+
+<section id="experience">
+<h2>Experience</h2>
+<div class="cards">
+<div class="card"><h3>Aykva</h3><p>Generated 2000 leads/month with 98.9% accuracy.</p></div>
+<div class="card"><h3>Fidelis</h3><p>Built structured lead pipelines and improved outreach efficiency.</p></div>
+<div class="card"><h3>Nextbits</h3><p>Managed freelance leads and database systems.</p></div>
+</div>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<div class="cards">
+<div class="card">Lead Generation Specialist</div>
+<div class="card">CRM Management</div>
+<div class="card">Data Validation</div>
+<div class="card">B2B Outreach</div>
+<div class="card">B2C Outreach</div>
+</div>
+</section>
+
+<section id="leads">
+<h2>Sample Lead List</h2>
+<div class="filter">
+<input type="text" id="search" placeholder="Search leads..." onkeyup="filterLeads()">
+</div>
+<div id="leadContainer" class="cards"></div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p>Email: toshniwal.vipul@gmail.com</p>
+<p>Phone: +91-9799747419</p>
+<p><button class="btn" onclick="window.location.href='mailto:toshniwal.vipul@gmail.com'">Contact Me</button></p>
+</section>
+
+<footer>
+<p>© 2026 Vipul Toshniwal</p>
+</footer>
+
+<script>
+const leads = [
+{name:"John Smith", company:"ABC Corp", role:"CEO", email:"john@abc.com"},
+{name:"Sara Lee", company:"XYZ Ltd", role:"CMO", email:"sara@xyz.com"},
+{name:"David Kim", company:"TechSoft", role:"CTO", email:"david@techsoft.com"}
+];
+
+function displayLeads(data){
+const container = document.getElementById('leadContainer');
+container.innerHTML = '';
+data.forEach(l => {
+container.innerHTML += `<div class='card'><h3>${l.name}</h3><p>${l.role} - ${l.company}</p><p>${l.email}</p></div>`;
+});
+}
+
+function filterLeads(){
+const search = document.getElementById('search').value.toLowerCase();
+const filtered = leads.filter(l => l.name.toLowerCase().includes(search) || l.company.toLowerCase().includes(search));
+displayLeads(filtered);
+}
+
+displayLeads(leads);
+</script>
+</body>
+</html>
